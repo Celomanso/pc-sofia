@@ -1,155 +1,33 @@
 
-<!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>PC da Sofia - Simulador</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: #1c89ff;
-      font-family: Tahoma, sans-serif;
-    }
-    .desktop {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 40px;
-      gap: 30px;
-    }
-    .icon {
-      width: 80px;
-      text-align: center;
-      color: white;
-      text-shadow: 1px 1px 2px #000;
-      cursor: pointer;
-    }
-    .icon img {
-      width: 64px;
-      height: 64px;
-    }
-    .window {
-      display: none;
-      position: absolute;
-      top: 100px;
-      left: 100px;
-      background: white;
-      color: black;
-      border: 2px solid #000080;
-      width: 400px;
-      box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
-      z-index: 100;
-    }
-    .window-header {
-      background: #000080;
-      color: white;
-      padding: 5px;
-      font-weight: bold;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: move;
-    }
-    .window-content {
-      padding: 10px;
-      max-height: 300px;
-      overflow-y: auto;
-      font-size: 14px;
-    }
-    .close-btn {
-      background: red;
-      border: none;
-      color: white;
-      padding: 2px 6px;
-      cursor: pointer;
-    }
-    .taskbar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 30px;
-      background: #2158d4;
-      color: white;
-      font-size: 14px;
-      padding-left: 10px;
-      display: flex;
-      align-items: center;
-    }
-  </style>
+    <title>PC da Sofia</title>
+    <style>
+        body {
+            background-color: #1E90FF;
+            font-family: Arial;
+            color: white;
+        }
+        .icon {
+            width: 80px;
+            text-align: center;
+            margin: 20px;
+            display: inline-block;
+        }
+        img {
+            width: 64px;
+            height: 64px;
+        }
+        .label {
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
-  <div class="desktop">
-    <div class="icon" onclick="openWindow('janelaBilhete')">
-      <img src="bilhete.png" alt="Bilhete">
-      <div>Bilhete</div>
-    </div>
-    <div class="icon" onclick="openWindow('janelaConfidencial')">
-      <img src="pasta.png" alt="CONFIDENCIAL">
-      <div>Confidencial</div>
-    </div>
-    <div class="icon" onclick="openWindow('janelaJornal')">
-      <img src="doc.png" alt="Jornal">
-      <div>Jornal</div>
-    </div>
-    <div class="icon" onclick="openWindow('janelaLixeira')">
-      <img src="lixeira.png" alt="Lixeira">
-      <div>Lixeira</div>
-    </div>
-    <div class="icon" onclick="openWindow('janelaPessoal')">
-      <img src="pessoal.png" alt="Pessoal">
-      <div>Pessoal</div>
-    </div>
-  </div>
-
-  <div class="window" id="janelaBilhete">
-    <div class="window-header">Bilhete <button class="close-btn" onclick="closeWindow('janelaBilhete')">X</button></div>
-    <div class="window-content">
-      Se algo acontecer comigo, procure na pasta CONFIDENCIAL. - S.
-    </div>
-  </div>
-
-  <div class="window" id="janelaConfidencial">
-    <div class="window-header">CONFIDENCIAL <button class="close-btn" onclick="closeWindow('janelaConfidencial')">X</button></div>
-    <div class="window-content">
-      AVISO_06_JUN.wav<br>
-      Denúncia contra Douglas, Camila e Luís.<br>
-      Registro de acesso via VPN.<br>
-      Anotações de Sofia: "Camila disse que era perigoso demais."
-    </div>
-  </div>
-
-  <div class="window" id="janelaJornal">
-    <div class="window-header">Jornal Investigativo <button class="close-btn" onclick="closeWindow('janelaJornal')">X</button></div>
-    <div class="window-content">
-      Coluna de Sofia sobre corrupção na construtora Vértice publicada dois dias antes do crime.
-    </div>
-  </div>
-
-  <div class="window" id="janelaLixeira">
-    <div class="window-header">Lixeira <button class="close-btn" onclick="closeWindow('janelaLixeira')">X</button></div>
-    <div class="window-content">
-      rascunho_incompleto.txt:<br>“Não aguento mais sua chantagem.”<br>
-      foto_cracha_cb.jpg (imagem corrompida)
-    </div>
-  </div>
-
-  <div class="window" id="janelaPessoal">
-    <div class="window-header">Pessoal <button class="close-btn" onclick="closeWindow('janelaPessoal')">X</button></div>
-    <div class="window-content">
-      Diário de abril:<br>“Ela dizia que sentia alguém observando. Paranoia ou verdade?”<br>
-      Receita clonazepam - emitida há 8 meses.
-    </div>
-  </div>
-
-  <div class="taskbar">Iniciar | PC da Sofia</div>
-
-  <script>
-    function openWindow(id) {
-      document.getElementById(id).style.display = 'block';
-    }
-    function closeWindow(id) {
-      document.getElementById(id).style.display = 'none';
-    }
-  </script>
+    <div class="icon"><a href="bilhete.txt" download><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Icon_Text_File.png/600px-Icon_Text_File.png"><div class="label">Bilhete</div></a></div>
+    <div class="icon"><a href="confidencial.html"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Folders_OS_X.svg"><div class="label">CONFIDENCIAL</div></a></div>
+    <div class="icon"><a href="lixeira.html"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Empty_Recycle_Bin.png"><div class="label">Lixeira</div></a></div>
+    <div class="icon"><a href="jornal_investigativo.html"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Folders_OS_X.svg"><div class="label">Jornal</div></a></div>
+    <div class="icon"><a href="pessoal.html"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Folders_OS_X.svg"><div class="label">Pessoal</div></a></div>
 </body>
 </html>
